@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Build CV</title>
+
+<style>
+  /* Match homepage look & feel */
+
+  body { font-family: serif; background-color: seashell; text-align: center; }
+  h1 { color: peru; text-align: center; }
+  p { text-align: center; font-size: 18px; }
+  mark { background-color: palegreen; }
+
+  /* Same link styles as homepage */
+  .tab { text-decoration: none; color: white; background: CadetBlue; padding: 5px 10px; border-radius: 10px; }
+  
+  .tabb:hover { background: #548B8D; }
+
+
+  /* Match homepage logo placement */
+  img.logo { position: absolute; top: 10px; left: 10px; width: 224px; height: 94px; }
+
+  /* Form: fixed width and centered so boxes look better */
+
+  .form-card {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 44px;
+  background-color: #fff7ec;        /* light cream to match seashell theme */
+  border: 1px solid #e0c9a6;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);}
+
+  
+form {
+    display: inline-block;
+    text-align: left;
+    width: 320px;          /* smaller, consistent width */
+    margin: 0 auto;}
+
+  label { font-weight: bold; display: inline-block; margin-top: 6px; }
+  input, textarea {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box; }
+
+  table { border-collapse: collapse; width: 100%; max-width: 800px; margin: 10px auto; }
+  th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+  caption { font-weight: bold; margin: 6px 0; }
+  hr { margin: 16px 0; }
+
+  /* Button color to match the heading color */
+  .btn { background: peru; color: white; border: 0; padding: 6px 12px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- Same logo/link style as homepage -->
+<a href="https://lu.edu.qa/?lang=en">
+  <img class="logo" src="https://lu.edu.qa/wp-content/uploads/2021/07/Color-logo-01-448x188.png" alt="Lusail University logo">
+</a>
+
+<h1>Build Your CV</h1>
+
+<!-- Nav now matches homepage (no <mark> wrapping) -->
+<p>
+	<a href="homepage.html" class="tab tabb">Home</a>
+	<a href="builder.html" class="tab tabb">Builder</a>
+	<a href="cv.html" class="tab tabb">CV</a>
+</p>
+
+<hr>
+
+<h2>Step 1: Fill the Form</h2>
+<form class="form-card" action="cv.html" method="get">
+  <p>
+    <label>Full Name:<br>
+      <input type="text" name="fullName" size="35" placeholder="e.g., Mubarak Rashid" required>
+    </label>
+  </p>
+
+  <p>
+    <label>Title:<br>
+      <input type="text" name="title" size="25" placeholder="e.g., Computer Science Student" required>
+    </label>
+  </p>
+
+  <p>
+    <label>Email:<br>
+      <input type="email" name="email" size="25" placeholder="you@example.com" required>
+    </label>
+  </p>
+
+  <p>
+    <label>Phone:<br>
+      <input type="text" name="phone" placeholder="+974 0000 0000">
+    </label>
+  </p>
+
+  <p>
+    <label>Summary (2–3 lines):<br>
+      <textarea name="summary" rows="7" cols="60" placeholder="Brief summary about yourself"></textarea>
+    </label>
+  </p>
+
+  <p>
+    <label>Skills (comma separated):<br>
+      <input type="text" name="skills" size="65" placeholder="HTML, CSS, Tables, Forms">
+    </label>
+  </p>
+
+  <fieldset>
+    <legend><b>Education</b></legend>
+
+    <p>
+      <label>Institution:<br>
+        <input type="text" name="eduInst" placeholder="e.g., Lusail University">
+      </label>
+    </p>
+
+    <p>
+      <label>Degree:<br>
+        <input type="text" name="eduDegree" placeholder="e.g., BSc in IT">
+      </label>
+    </p>
+
+    <p>
+      <label>Years:<br>
+        <input type="text" name="eduYears" placeholder="2024 – 2026">
+      </label>
+    </p>
+  </fieldset>
+
+  <p>
+    <button type="submit" class="btn">Submit (no action)</button>
+  </p>
+</form>
+
+<hr>
+
+<h2>Step 2: Simple CV Preview (Table)</h2>
+<p>Copy your information from the form into this table by hand (practice for tables and text formatting):</p>
+
+<table>
+  <caption>My CV</caption>
+  <tr>
+    <th style="width:180px;">Photo</th>
+    <td>
+      <!-- Replace the src with your image file name or a URL -->
+      <img src="avatar-example.png" alt="My Photo" width="100" height="100"><br>
+      <small>You can use any image you have.</small>
+    </td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td><b>Your Name Here</b></td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td><i>Your Title Here</i></td>
+  </tr>
+  <tr>
+    <th>Contact</th>
+    <td>Email: you@example.com<br>Phone: 0000 0000</td>
+  </tr>
+  <tr>
+    <th>Summary</th>
+    <td>Write your 2–3 line summary here.</td>
+  </tr>
+  <tr>
+    <th>Skills</th>
+    <td>
+      <ul>
+        <li>HTML</li>
+        <li>CSS (Inline &amp; Internal)</li>
+        <li>Tables / Forms</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Education</th>
+    <td>
+      <table style="width:100%; border-collapse:collapse;">
+        <tr>
+          <th style="border:1px solid #333; padding:6px;">Institution</th>
+          <th style="border:1px solid #333; padding:6px;">Degree</th>
+          <th style="border:1px solid #333; padding:6px;">Years</th>
+        </tr>
+        <tr>
+          <td style="border:1px solid #333; padding:6px;">Lusail University</td>
+          <td style="border:1px solid #333; padding:6px;">BSc in IT</td>
+          <td style="border:1px solid #333; padding:6px;">2024–2026</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<hr>
+<footer style="background:cadetblue; color:white; padding:10px; border-radius:10px; width:40%; margin:auto;">
+  <p>Student CV Builder &copy 2025 | Created by Lusail University Students <br> <br>
+     Mubarak Alkhulaifi<br> 
+     Belal Fattal<br> 
+     Ibrahim Khalf</b></p>
+</footer>
+
+</body>
+</html>

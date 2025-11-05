@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My CV</title>
+<style>
+  body { font-family: serif; background-color: seashell; text-align: center; }
+  h1 { color: peru; }
+  .cv-card {
+    max-width: 600px;
+    background-color: white;
+    border: 1px solid #dcbfa6;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  h2 { color: peru; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+  p { line-height: 1.6; }
+  ul { margin-left: 20px; }
+  .tab { text-decoration: none; color: white; background: CadetBlue; padding: 5px 10px; border-radius: 10px; }
+  .tabb:hover { background: #548B8D; }
+   img { position: absolute; top: 10px; left: 10px; width: 224px; height: 94px; }
+
+</style>
+</head>
+<body>
+<a href = "https://lu.edu.qa/?lang=en"> 
+<img src = "https://lu.edu.qa/wp-content/uploads/2021/07/Color-logo-01-448x188.png" alt = logo> 
+</a>
+<h1>Your CV</h1>
+<p>
+	<a href="homepage.html" class="tab tabb">Home</a>
+	<a href="builder.html" class="tab tabb">Builder</a>
+	<a href="cv.html" class="tab tabb">CV</a>
+</p>
+
+<hr>
+
+<div class="cv-card" id="cvOutput">
+  <h2>Personal Information</h2>
+  <p><b>Name:</b> <span id="fullName"></span><br>
+     <b>Title:</b> <span id="title"></span><br>
+     <b>Email:</b> <span id="email"></span><br>
+     <b>Phone:</b> <span id="phone"></span></p>
+
+  <h2>Summary</h2>
+  <p id="summary"></p>
+
+  <h2>Skills</h2>
+  <ul id="skillsList"></ul>
+
+  <h2>Education</h2>
+  <p><b>Institution:</b> <span id="eduInst"></span><br>
+     <b>Degree:</b> <span id="eduDegree"></span><br>
+     <b>Years:</b> <span id="eduYears"></span></p>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("fullName").textContent = params.get("fullName");
+  document.getElementById("title").textContent = params.get("title");
+  document.getElementById("email").textContent = params.get("email");
+  document.getElementById("phone").textContent = params.get("phone");
+  document.getElementById("summary").textContent = params.get("summary");
+  document.getElementById("eduInst").textContent = params.get("eduInst");
+  document.getElementById("eduDegree").textContent = params.get("eduDegree");
+  document.getElementById("eduYears").textContent = params.get("eduYears");
+
+  const skills = params.get("skills");
+  if (skills) {
+    const list = skills.split(",");
+    list.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill.trim();
+      document.getElementById("skillsList").appendChild(li);
+    });
+  }
+</script>
+<p style="text-align:center; margin-top:20px;">
+  <button onclick="window.print()" style="background:peru; color:white; border:0; padding:8px 16px; border-radius:6px; cursor:pointer;">
+    🖨️ Print My CV
+  </button>
+</p>
+
+<style>
+@media print {
+  button, a, footer { display: none; }   /* hides the button and links when printing */
+}
+</style>
+
+<footer style="background:cadetblue; color:white; padding:10px; border-radius:10px; width:40%; margin:auto;">
+  <p>Student CV Builder &copy 2025 | Created by Lusail University Students <br> <br>
+     Mubarak Alkhulaifi<br> 
+     Belal Fattal<br> 
+     Ibrahim Khalf</b></p>
+</footer>
+
+</body>
+</html>
