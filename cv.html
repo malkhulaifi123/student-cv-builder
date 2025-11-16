@@ -40,10 +40,14 @@
 
 <div class="cv-card" id="cvOutput">
   <h2>Personal Information</h2>
-  <p><b>Name:</b> <span id="fullName"></span><br>
-     <b>Title:</b> <span id="title"></span><br>
-     <b>Email:</b> <span id="email"></span><br>
-     <b>Phone:</b> <span id="phone"></span></p>
+<p>
+  <b>Name:</b> <span id="fullName"></span><br>
+  <b>Date of Birth:</b> <span id="dob"></span><br>
+  <b>Major:</b> <span id="title"></span><br>
+  <b>Email:</b> <span id="email"></span><br>
+  <b>Phone:</b> <span id="phone"></span>
+</p>
+
 
   <h2>Summary</h2>
   <p id="summary"></p>
@@ -59,15 +63,35 @@
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  document.getElementById("fullName").textContent = params.get("fullName");
-  document.getElementById("title").textContent = params.get("title");
-  document.getElementById("email").textContent = params.get("email");
-  document.getElementById("phone").textContent = params.get("phone");
-  document.getElementById("summary").textContent = params.get("summary");
-  document.getElementById("eduInst").textContent = params.get("eduInst");
-  document.getElementById("eduDegree").textContent = params.get("eduDegree");
-  document.getElementById("eduYears").textContent = params.get("eduYears");
 
+  // Name = firstName + lastName
+  const first = params.get("firstName") || "";
+  const last  = params.get("lastName")  || "";
+  document.getElementById("fullName").textContent = (first + " " + last).trim();
+
+  // Date of Birth = Day Month Year
+  const d = params.get("dobDay")   || "";
+  const m = params.get("dobMonth") || "";
+  const y = params.get("dobYear")  || "";
+  document.getElementById("dob").textContent = (d + " " + m + " " + y).trim();
+
+  // Major (we reuse the "title" span)
+  document.getElementById("title").textContent = params.get("major") || "";
+
+  // Contact and summary
+  document.getElementById("email").textContent   = params.get("email")   || "";
+  document.getElementById("phone").textContent   = params.get("phone")   || "";
+  document.getElementById("summary").textContent = params.get("summary") || "";
+
+  // Education
+  document.getElementById("eduInst").textContent   = params.get("eduInst")   || "";
+  document.getElementById("eduDegree").textContent = params.get("eduDegree") || "";
+
+  const eduStart = params.get("eduStart") || "";
+  const eduEnd   = params.get("eduEnd")   || "";
+  document.getElementById("eduYears").textContent = (eduStart + " - " + eduEnd).trim();
+
+  // Skills list (same logic as before)
   const skills = params.get("skills");
   if (skills) {
     const list = skills.split(",");
@@ -78,6 +102,7 @@
     });
   }
 </script>
+
 <p style="text-align:center; margin-top:20px;">
   <button onclick="window.print()" style="background:peru; color:white; border:0; padding:8px 16px; border-radius:6px; cursor:pointer;">
     🖨️ Print My CV
@@ -99,4 +124,3 @@
 
 </body>
 </html>
-
