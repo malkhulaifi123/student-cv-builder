@@ -24,7 +24,7 @@
   /* Form: fixed width and centered so boxes look better */
 
   .form-card {
-  max-width: 520px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 20px 44px;
   background-color: #fff7ec;        /* light cream to match seashell theme */
@@ -32,23 +32,25 @@
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);}
 
+.full {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;}
+
   
 form {
-    display: inline-block;
+    display: block;
     text-align: left;
-    width: 320px;          /* smaller, consistent width */
+    width: 100%;          /* smaller, consistent width */
     margin: 0 auto;}
 
-  label { font-weight: bold; display: inline-block; margin-top: 6px; }
-  input, textarea {
+  label { font-weight: bold; display: block; margin-top: 6px; }
+ textarea {
     width: 100%;
     padding: 6px;
-    box-sizing: border-box; }
+    box-sizing: border-box;}
 
-  table { border-collapse: collapse; width: 100%; max-width: 800px; margin: 10px auto; }
-  th, td { border: 1px solid #333; padding: 8px; text-align: left; }
-  caption { font-weight: bold; margin: 6px 0; }
-  hr { margin: 16px 0; }
+    hr { margin: 16px 0; }
 
   /* Button color to match the heading color */
   .btn { background: peru; color: white; border: 0; padding: 6px 12px; cursor: pointer; }
@@ -74,130 +76,209 @@ form {
 
 <h2>Step 1: Fill the Form</h2>
 <form class="form-card" action="cv.html" method="get">
-  <p>
-    <label>Full Name:<br>
-      <input type="text" name="fullName" size="35" placeholder="e.g., Mubarak Rashid" required>
+
+ <p style="text-align:left;">
+
+  <label style="display:inline-block; width:45%; margin-right:6.4%;">First Name</label>
+  <label style="display:inline-block; width:45%;">Last Name</label><br>
+
+  <input type="text" name="firstName" placeholder="e.g. Mohammad" style="display:inline-block; width:48%; margin-right:3.4%; padding:6px; box-sizing:border-box;" required>
+
+  <input type="text" name="lastName" placeholder="e.g. Ahmed" style="display:inline-block; width:48%; padding:6px; box-sizing:border-box;" required>
+
+</p>
+
+
+
+<p style="text-align:center; font-weight:bold;">Date of Birth</p>
+
+<p style="text-align:left;">
+
+    <!-- Day -->
+    <label style="display:inline-block; width:31%; margin-right:2.9%;">
+      Day<br>
+      <select name="dobDay" required
+              style="width:100%; padding:6px; box-sizing:border-box;">
+	<option value="">Day</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+        <option>5</option><option>6</option><option>7</option><option>8</option>
+        <option>9</option><option>10</option><option>11</option><option>12</option>
+        <option>13</option><option>14</option><option>15</option><option>16</option>
+        <option>17</option><option>18</option><option>19</option><option>20</option>
+        <option>21</option><option>22</option><option>23</option><option>24</option>
+        <option>25</option><option>26</option><option>27</option><option>28</option>
+        <option>29</option><option>30</option><option>31</option>
+      </select>
+    </label>
+
+    <!-- Month -->
+    <label style="display:inline-block; width:31%; margin-right:2.9%;">
+      Month<br>
+      <select name="dobMonth" required
+              style="width:100%; padding:6px; box-sizing:border-box;">
+        <option value="">Month</option>
+	<option>January</option>
+	<option>February</option>
+	<option>March</option>
+        <option>April</option>
+	<option>May</option>
+	<option>June</option>
+        <option>July</option>
+	<option>August</option>
+	<option>September</option>
+        <option>October</option>
+	<option>November</option>
+	<option>December</option>
+      </select>
+    </label>
+
+    <!-- Year -->
+    <label style="display:inline-block; width:31%;">
+      Year<br>
+      <select name="dobYear" required
+              style="width:100%; padding:6px; box-sizing:border-box;">
+        <option value="">Year</option>
+        <option>1980</option><option>1981</option><option>1982</option>
+        <option>1983</option><option>1984</option><option>1985</option>
+        <option>1986</option><option>1987</option><option>1988</option>
+        <option>1989</option><option>1990</option><option>1991</option>
+        <option>1992</option><option>1993</option><option>1994</option>
+        <option>1995</option><option>1996</option><option>1997</option>
+        <option>1998</option><option>1999</option><option>2000</option>
+        <option>2001</option><option>2002</option><option>2003</option>
+        <option>2004</option><option>2005</option><option>2006</option>
+        <option>2007</option><option>2008</option><option>2009</option>
+        <option>2010</option><option>2011</option><option>2012</option>
+        <option>2013</option><option>2014</option><option>2015</option>
+        <option>2016</option><option>2017</option><option>2018</option>
+        <option>2019</option><option>2020</option>
+      </select>
+    
+
+  </label>
+</p>
+
+
+
+<p style="text-align:left;">
+
+    <label for="majorSelect">Major<br>
+      <select id="majorSelect" name="major" class="full" required>
+        <option value=""> Select major </option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Business">Business Administration</option>
+        <option value="Accounting">Accounting</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Nursing">Nursing</option>
+        <option value="Education">Education</option>
+      </select>
     </label>
   </p>
 
-  <p>
-    <label>Title:<br>
-      <input type="text" name="title" size="25" placeholder="e.g., Computer Science Student" required>
+  <p style="text-align:left;">
+    <label>Email<br>
+      <input type="email" name="email" class="full" placeholder="you@example.com" required>
     </label>
   </p>
 
-  <p>
-    <label>Email:<br>
-      <input type="email" name="email" size="25" placeholder="you@example.com" required>
+  <p style="text-align:left;">
+    <label>Phone<br>
+      <input type="text" name="phone" class="full" placeholder="+974 0000 0000">
     </label>
   </p>
 
-  <p>
-    <label>Phone:<br>
-      <input type="text" name="phone" placeholder="+974 0000 0000">
-    </label>
-  </p>
-
-  <p>
-    <label>Summary (2–3 lines):<br>
+  <p style="text-align:left;">
+    <label>Summary (2–3 lines)<br>
       <textarea name="summary" rows="7" cols="60" placeholder="Brief summary about yourself"></textarea>
     </label>
   </p>
 
-  <p>
-    <label>Skills (comma separated):<br>
-      <input type="text" name="skills" size="65" placeholder="HTML, CSS, Tables, Forms">
+  <p style="text-align:left;">
+    <label>Skills (comma separated)<br>
+      <input type="text" name="skills" class="full" placeholder="HTML, CSS, Tables, Forms">
     </label>
   </p>
 
   <fieldset>
     <legend><b>Education</b></legend>
 
-    <p>
-      <label>Institution:<br>
-        <input type="text" name="eduInst" placeholder="e.g., Lusail University">
-      </label>
-    </p>
+ <p>
+    <label>Institution<br>
+      <input type="text" name="eduInst" class="full" value="Lusail University" readonly >
+    </label>
+  </p>
 
-    <p>
-      <label>Degree:<br>
-        <input type="text" name="eduDegree" placeholder="e.g., BSc in IT">
-      </label>
-    </p>
+ <p>
+    <label>Degree<br>
+      <select name="eduDegree" required style="width:100%; padding:6px;">
+        <option value="">Select Degree</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Bachelor">Bachelor</option>
+        <option value="Master">Master</option>
+      </select>
+    </label>
+  </p>
 
-    <p>
-      <label>Years:<br>
-        <input type="text" name="eduYears" placeholder="2024 – 2026">
-      </label>
-    </p>
-  </fieldset>
 
-  <p>
-    <button type="submit" class="btn">Submit (no action)</button>
+
+<p style="text-align:center; margin-bottom:8px;">
+  <b>Years</b>
+</p>
+
+<p style="text-align:left;">
+
+  <label style="display:inline-block; width:48%; margin-right:3.4%;">
+    From<br>
+    <select name="eduStart" required style="width:100%; padding:6px; box-sizing:border-box;">
+	<option value="">Start</option>
+	<option>2018</option>
+	<option>2019</option>
+	<option>2020</option>
+	<option>2021</option>
+	<option>2022</option>
+	<option>2023</option>
+	<option>2024</option>
+	<option>2025</option>
+	<option>2026</option>
+    </select>
+  </label>
+
+  <label style="display:inline-block; width:48%;">
+    To<br>
+    <select name="eduEnd" required style="width:100%; padding:6px; box-sizing:border-box;">
+	<option value="">End</option>
+	<option>2021</option>
+	<option>2022</option>
+	<option>2023</option>
+	<option>2024</option>
+	<option>2025</option>
+	<option>2026</option>
+	<option>2027</option>
+	<option>2028</option>
+	<option>2029</option>
+    </select>
+  </label>
+
+</p>
+
+
+
+</fieldset>
+
+
+
+<p>
+
+    <button type="submit" class="btn">Submit </button>
   </p>
 </form>
 
 <hr>
 
-<h2>Step 2: Simple CV Preview (Table)</h2>
-<p>Copy your information from the form into this table by hand (practice for tables and text formatting):</p>
 
-<table>
-  <caption>My CV</caption>
-  <tr>
-    <th style="width:180px;">Photo</th>
-    <td>
-      <!-- Replace the src with your image file name or a URL -->
-      <img src="avatar-example.png" alt="My Photo" width="100" height="100"><br>
-      <small>You can use any image you have.</small>
-    </td>
-  </tr>
-  <tr>
-    <th>Name</th>
-    <td><b>Your Name Here</b></td>
-  </tr>
-  <tr>
-    <th>Title</th>
-    <td><i>Your Title Here</i></td>
-  </tr>
-  <tr>
-    <th>Contact</th>
-    <td>Email: you@example.com<br>Phone: 0000 0000</td>
-  </tr>
-  <tr>
-    <th>Summary</th>
-    <td>Write your 2–3 line summary here.</td>
-  </tr>
-  <tr>
-    <th>Skills</th>
-    <td>
-      <ul>
-        <li>HTML</li>
-        <li>CSS (Inline &amp; Internal)</li>
-        <li>Tables / Forms</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <th>Education</th>
-    <td>
-      <table style="width:100%; border-collapse:collapse;">
-        <tr>
-          <th style="border:1px solid #333; padding:6px;">Institution</th>
-          <th style="border:1px solid #333; padding:6px;">Degree</th>
-          <th style="border:1px solid #333; padding:6px;">Years</th>
-        </tr>
-        <tr>
-          <td style="border:1px solid #333; padding:6px;">Lusail University</td>
-          <td style="border:1px solid #333; padding:6px;">BSc in IT</td>
-          <td style="border:1px solid #333; padding:6px;">2024–2026</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
-<hr>
 <footer style="background:cadetblue; color:white; padding:10px; border-radius:10px; width:40%; margin:auto;">
   <p>Student CV Builder &copy 2025 | Created by Lusail University Students <br> <br>
      Mubarak Alkhulaifi<br> 
@@ -207,4 +288,5 @@ form {
 
 </body>
 </html>
+
 
