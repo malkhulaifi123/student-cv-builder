@@ -90,17 +90,19 @@
   const eduStart = params.get("eduStart") || "";
   const eduEnd   = params.get("eduEnd")   || "";
   document.getElementById("eduYears").textContent = (eduStart + " - " + eduEnd).trim();
+	
+	const skills = params.get("skills");
 
-  // Skills list (same logic as before)
-  const skills = params.get("skills");
-  if (skills) {
-    const list = skills.split(",");
-    list.forEach(skill => {
-      const li = document.createElement("li");
-      li.textContent = skill.trim();
-      document.getElementById("skillsList").appendChild(li);
-    });
+if (skills) {
+  const list = skills.split(",");
+
+  for (let i = 0; i < list.length; i++) {
+    let li = document.createElement("li");   // make bullet point
+    li.textContent = list[i].trim();         // put skill text inside
+    document.getElementById("skillsList").appendChild(li); // add to page
   }
+}
+
 </script>
 
 <p style="text-align:center; margin-top:20px;">
@@ -124,3 +126,4 @@
 
 </body>
 </html>
+
